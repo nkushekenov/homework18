@@ -1,0 +1,12 @@
+{% extends "HW18/base.html" %}
+
+{% block title %}Confirm Delete Item{% endblock %}
+
+{% block content %}
+    <h1>Вы уверены, что хотите удалить?"{{ object.name }}"?</h1>
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit">Yes, Delete</button>
+        <a href="{% url 'item_detail' object.pk %}">Cancel</a>
+    </form>
+{% endblock %}
